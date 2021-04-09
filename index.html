@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project a</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <section>
+        <div id="kontenjer-forma">
+            <input type="text" id="id" placeholder="#ID">
+            <input type="text" id="ime" placeholder="IME">
+            <input type="text" id="prezime" placeholder="PREZIME">
+            <input type="text" id="godine" placeholder="GODINE">
+
+            <button id="kreiraj">Kreiraj</button>
+        </div>
+        <div id="search">
+            <p>SEARCH TABLE</p>
+            <div class="searchbars">
+
+                <input type="text" id="searchID" placeholder="id">
+                <input type="text" id="searchName" placeholder="name">
+                <input type="text" id="searchSurname" placeholder="surnmae">
+                <input type="text" id="searchYears" placeholder="years">
+            </div>
+            <p>SORT </p>
+            <div>
+                    <input type="button" value="Id" id="sort_id"></input>
+                    <input type="button" value="Name" id="sort_name"></input>
+                    <input type="button" value="Surname" id="sort_surname"></input>
+                    <input type="button" value="Years" id="sort_years"></input>
+            </div>
+            
+
+            <!-- !TABLICA -->
+
+            <table id="myTable">
+                <caption>List of USERS</caption>
+                <tbody id="tB">
+                    <tr id="headersTable" class="header">
+                        <th>#ID</th>
+                        <th>NAME</th>
+                        <th>SURNAME</th>
+                        <th>YEARS</th>
+                    </tr>
+
+
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+
+    <script src="skripta.js" defer></script>
+</body>
+
+</html>
