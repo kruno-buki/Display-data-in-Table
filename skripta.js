@@ -53,13 +53,17 @@ const btnKreiraj = document.getElementById('kreiraj');
 function refreshTablica() {
 
     for (let i = 0; i < korisnici.length; ++i) {
+
+        // ? kreiranje retka
         let tr = document.createElement('tr');
+        //dodajem  'table row' klasu naziva KL
         tr.classList.add("KL");
 
+        // ? UMETANJE podataka u svaku ćeliju
         //for id
         let td1 = document.createElement('td');
         td1.textContent = korisnici[i].id; //add text content from array of objects
-        tr.append(td1); //appending
+        tr.append(td1); //append ćelije na red
 
         // for names
         let td2 = document.createElement('td');
@@ -77,7 +81,7 @@ function refreshTablica() {
         tr.append(td4);
 
 
-        //* on the end append row on the table
+        //? na kraju append red na tablicu
         tablicaEl.append(tr);
 
     }
@@ -85,9 +89,9 @@ function refreshTablica() {
 //in a start ...call function to create and to fulfill table in browser
 refreshTablica(); 
 
-
 // !--------------------------------------------------------
-// !SEARCH TABLE  tablice
+
+// !SEARCH TABLE - pretraga po  tablici
 const myInputID = document.getElementById('searchID');
 const myInputName = document.getElementById('searchName');
 const myInputSurname = document.getElementById('searchSurname');
@@ -95,11 +99,11 @@ const myInputYears = document.getElementById('searchYears');
 
 //! for ID
 myInputID.addEventListener('keyup', () => {
-    // Declare variables
+    // varijable
     let input, filter, table, tr, td, i, txtValue;
 
     input = document.getElementById("searchID");
-    filter = input.value.toUpperCase();
+    filter = input.value.toUpperCase(); // unos pretvori u velika slova
     table = document.getElementById("myTable");
     tr = table.getElementsByTagName("tr"); //collection of the tags 
 
@@ -110,16 +114,16 @@ myInputID.addEventListener('keyup', () => {
         if (td) {
             txtValue = td.textContent || td.innerText;
             if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                tr[i].style.display = ""; //normal view
+                tr[i].style.display = ""; // normal view
             } else {
-                tr[i].style.display = "none"; //disappear
+                tr[i].style.display = "none"; // disappear
             }
         }
     }
 })
 //!name
 myInputName.addEventListener('keyup', () => {
-    // Declare variables
+    // varijable
     let input, filter, table, tr, td, i, txtValue;
 
     input = document.getElementById("searchName");
@@ -145,7 +149,7 @@ myInputName.addEventListener('keyup', () => {
 })
 //!surname
 myInputSurname.addEventListener('keyup', () => {
-    // Declare variables
+    // varijable
     let input, filter, table, tr, td, i, txtValue;
 
     input = document.getElementById("searchSurname");
@@ -197,9 +201,11 @@ myInputYears.addEventListener('keyup', () => {
     }
 
 })
+// !--------------------------------------------------------
 
-//! SORTIRANJE
-const th = document.querySelectorAll('th');
+//! SORTIRANJE / SORTING 
+
+const th = document.querySelectorAll('th'); 
 // console.log(th[0]); //<th> (#ID)
 const sort_id = document.getElementById('sort_id');
 const sort_name = document.getElementById('sort_name');
@@ -208,7 +214,7 @@ const sort_years = document.getElementById('sort_years');
 
 //? IDEA: -sort a array of objects; - delete table in the browser; - refresh table 
 
-// th[0] ...klik na header
+// th[0] ...ako želiš sortirati klikom na header
 sort_id.addEventListener("click", () => {
 
     korisnici.sort((a, b) => a.id - b.id);
@@ -221,7 +227,6 @@ sort_id.addEventListener("click", () => {
 sort_name.addEventListener("click", () => {
 
     korisnici.sort((a, b) => a.name.localeCompare(b.name));
-
     deletetTableRows();
     refreshTablica();
 
